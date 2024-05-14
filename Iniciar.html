@@ -81,26 +81,29 @@
         
     
     <script>
-      document.getElementById('login-form').addEventListener('submit', function(event) {
-    const emailInput = document.getElementById('email');
-    const firstNameInput = document.getElementById('firstName');
-    const lastNameInput = document.getElementById('lastName');
-    const addressInput = document.getElementById('address');
+      
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        const emailInput = document.getElementById('email');
+        const firstNameInput = document.getElementById('firstName');
+        const lastNameInput = document.getElementById('lastName');
+        const ContraseñaInput = document.getElementById('contraseña');
 
-    // Validar que todos los campos estén completos
-    if (!emailInput.value || !firstNameInput.value || !lastNameInput.value || !addressInput.value) {
-        alert('Por favor, completa todos los campos.');
-        event.preventDefault(); // Evitar que se envíe el formulario
-        return;
-    }
+        // Validar que todos los campos estén completos
+        if (!emailInput.value || !firstNameInput.value || !lastNameInput.value || !ContraseñaInput.value) {
+            alert('Por favor, completa todos los campos.');
+            event.preventDefault(); // Evitar que se envíe el formulario
+            return;
+        }
 
-    // Validar la dirección (debe contener al menos un número)
-    const address = addressInput.value;
-    if (!/\d/.test(address)) {
-        alert('La dirección debe contener al menos un número.');
-        event.preventDefault(); // Evitar que se envíe el formulario
-    }
-});
+        // Mostrar mensaje de sesión iniciada correctamente
+        alert('¡Sesión iniciada correctamente!');
+        
+        
+        
+
+    });
+
+
     </script>
     
 
