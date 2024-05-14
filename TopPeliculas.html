@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<body>
+    <style>
+        .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.genre-item {
+    margin: 20px;
+    text-align: center;
+}
+
+.genre-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.genre-item h2 {
+    margin-top: 10px;
+}
+    </style>
+    <div id="genres-container" class="container"></div>
+    <script>
+        
+        $(document).ready(function() {
+            // Configuración para la solicitud a la API
+            const settings = {
+                async: true,
+                crossDomain: true,
+                url: 'https://advanced-movie-search.p.rapidapi.com/genre/movie/list', // Reemplaza esta URL con la URL de la API que deseas utilizar
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '3203ff2373msh49fd90ef77b9e9fp175b26jsn6a50d73f3791',
+                    'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
+                }
+            };
+    
+            // Realizar la solicitud a la API y manejar la respuesta
+            $.ajax(settings).done(function (response) {
+                const genres = response.genres;
+                const genresContainer = $('#genres-container');
+    
+                // Iterar sobre los géneros y mostrarlos en el contenedor
+                genres.forEach(genre => {
+                    const genreElement = `<div>${genre.name}</div>`;
+                    genresContainer.append(genreElement);
+                });
+            });
+        });
+        // Obtener el contenedor de géneros
+const genresContainer = $('#genres-container');
+
+// Iterar sobre los géneros y mostrarlos en el contenedor
+genres.forEach(genre => {
+    // Crear un div para cada género con imagen y título
+    const genreElement = `
+        <div class="genre-item">
+            <img src="URL_DE_LA_IMAGEN" alt="${genre.name}">
+            <h2>${genre.name}</h2>
+        </div>
+    `;
+    genresContainer.append(genreElement);
+});
+    </script>
+    
+</body>
+</html>
