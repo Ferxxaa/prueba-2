@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carrito de ventas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carrito de Compras</h1>
+    </header>
+    <div class="container">
+        <div class="product">
+            <img src="imagen-producto.jpg" alt="Producto 1">
+            <h2>Nombre del Producto 1</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: $100</p>
+            <button>Agregar al Carrito</button>
+        </div>
+
+        <!-- Otros productos -->
+
+        <form>
+            <h2>Detalles de Compra</h2>
+            <input type="text" placeholder="Nombre">
+            <input type="email" placeholder="Correo Electrónico">
+            <input type="text" placeholder="Dirección">
+            <select>
+                <option value="1">Método de Pago</option>
+                <option value="2">Tarjeta de Crédito</option>
+                <option value="3">Transferencia Bancaria</option>
+            </select>
+            <input type="submit" value="Comprar">
+        </form>
+    </div>
+    <main>
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="cart-total">$0</span></p>
+        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+        <button onclick="realizarCompra()">Realizar Compra</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 PelículasAlquiler.com - Todos los derechos reservados</p>
+    </footer>
+    <script src="carrito.js">
+        let carrito = [];
+let total = 0;
+
+function agregarAlCarrito(producto, precio) {
+    carrito.push({ nombre: producto, precio: precio });
+    total += precio;
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+    const carritoItems = document.getElementById('cart-items');
+    carritoItems.innerHTML = '';
+    carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio}`;
+        carritoItems.appendChild(li);
+    });
+    document.getElementById('cart-total').textContent = `$${total}`;
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    total = 0;
+    actualizarCarrito();
+}
+
+function realizarCompra() {
+    alert('Compra realizada con éxito');
+    vaciarCarrito();
+}
+
+// Puedes añadir más funciones o lógica según sea necesario
+
+    </script>
+</body>
+    
+</body>
+</html>
