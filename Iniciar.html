@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Establecer tipo de letra */
+            text-align: center; /* Centrar el contenido */
+            background-color: #484545; /* Color de fondo */
+        }
+
+        h1 {
+            color: #333; /* Color del título */
+            font-size: 24px; /* Tamaño del título */
+        }
+
+        form {
+            max-width: 400px; /* Ancho máximo del formulario */
+            margin: 0 auto; /* Centrar el formulario horizontalmente */
+            padding: 20px; /* Espaciado interno del formulario */
+            background-color: #f9f9f9; /* Color de fondo del formulario */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(221, 218, 218, 0.1); /* Sombra suave */
+        }
+
+        label {
+            display: block; /* Mostrar etiquetas en línea */
+            margin-bottom: 5px; /* Espaciado inferior de las etiquetas */
+        }
+
+        input[type="email"],
+        input[type="text"],
+        button {
+            width: 100%; /* Ancho completo para los campos y botón */
+            padding: 8px; /* Espaciado interno */
+            margin-bottom: 15px; /* Espaciado inferior */
+            border: 1px solid #ccc; /* Borde gris */
+            border-radius: 4px; /* Bordes redondeados */
+            box-sizing: border-box; /* Incluir el borde en el ancho */
+        }
+
+        input[type="email"]:focus,
+        input[type="text"]:focus {
+            outline: none; /* Eliminar el contorno al enfocar */
+            border-color: #007bff; /* Cambiar color del borde al enfocar */
+        }
+
+        button {
+            background-color: #007bff; /* Color de fondo del botón */
+            color: #fff; /* Color del texto del botón */
+            border: none; /* Sin borde */
+            cursor: pointer; /* Cursor apuntador al pasar el mouse */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el mouse */
+        }
+    </style>
+    
+    <form id="login-form">
+        <h1>Iniciar Sesión</h1>
+    <form id="login-form">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="firstName">Nombre De Usuario :</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="address">Contraseña:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+        
+    
+    <script>
+      document.getElementById('login-form').addEventListener('submit', function(event) {
+    const emailInput = document.getElementById('email');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const addressInput = document.getElementById('address');
+
+    // Validar que todos los campos estén completos
+    if (!emailInput.value || !firstNameInput.value || !lastNameInput.value || !addressInput.value) {
+        alert('Por favor, completa todos los campos.');
+        event.preventDefault(); // Evitar que se envíe el formulario
+        return;
+    }
+
+    // Validar la dirección (debe contener al menos un número)
+    const address = addressInput.value;
+    if (!/\d/.test(address)) {
+        alert('La dirección debe contener al menos un número.');
+        event.preventDefault(); // Evitar que se envíe el formulario
+    }
+});
+    </script>
+    
+
+    
+</body>
+</html>
